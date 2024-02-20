@@ -7,6 +7,9 @@ public class CollisionManagement {
     public void checkCollisions(EntityManagement entityManagement) {
         List<Bullet> bulletsCopy = new ArrayList<>(entityManagement.getBullets());
         List<Asteroid> asteroidsCopy = new ArrayList<>(entityManagement.getAsteroids());
+     // Get the player instance from EntityManagement
+        Player player = entityManagement.getPlayer();
+
 
         // Iterate over the copies of the lists
         for (Bullet bullet : bulletsCopy) {
@@ -18,6 +21,19 @@ public class CollisionManagement {
                     break; // Exit inner loop since bullet can collide with only one asteroid
                 }
             }
+
+        }
+        for (Asteroid asteroid : asteroidsCopy) {
+                if (collides(player, asteroid)) {
+                    // Handle collision
+                    // For example, you might decrease player health, play a sound, or end the game
+                	
+                	entityManagement.getAsteroids().remove(asteroid);
+                	player.hit();
+                    System.out.println("Player collided with an asteroid!");
+                    break; // No need to check other asteroids if the player has collided with one
+                }
+
         }
     }
 
@@ -38,5 +54,7 @@ public class CollisionManagement {
                object1X + object1Width > object2X &&
                object1Y < object2Y + object2Height &&
                object1Y + object1Height > object2Y;
+               
+        
     }
 }

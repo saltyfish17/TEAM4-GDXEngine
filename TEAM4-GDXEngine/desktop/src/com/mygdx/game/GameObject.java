@@ -8,11 +8,11 @@ public abstract class GameObject {
     protected Texture texture;
     
     public float getWidth() {
-        return getTexture().getWidth(); // Assuming the width is determined by the player's texture
+        return getWidth(); // Assuming the width is determined by the player's texture
     }
 
     public float getHeight() {
-        return getTexture().getHeight(); // Assuming the height is determined by the player's texture
+        return getHeight(); // Assuming the height is determined by the player's texture
     }
 
     public GameObject(float x, float y, Texture texture) {

@@ -56,7 +56,7 @@ public class EntityManagement {
 
 	public Player getPlayer() {
 		// TODO Auto-generated method stub
-		return null;
+		return player;
 	}
 	public void printEntities() {
         System.out.println("Bullets:");
@@ -67,6 +67,8 @@ public class EntityManagement {
         System.out.println("Asteroids:");
         for (Asteroid asteroid : asteroids) {
             System.out.println("Asteroid - Width: " + asteroid.getWidth() + ", Height: " + asteroid.getHeight());
-        }
+        } 
+        System.out.println("Asteroid - Width: " + player.getWidth() + ", Height: " + player.getHeight());
+        
     }
 }

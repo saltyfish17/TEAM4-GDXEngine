@@ -32,7 +32,7 @@ public class Spacedefender extends ApplicationAdapter {
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 800, 600);
 
-        player = new Player(playerTexture, bulletTexture);
+        player = new Player(50, 50, playerTexture, bulletTexture);
         entityManagement = new EntityManagement(player);
         new InputOutputManagement(player, entityManagement);
 
@@ -43,7 +43,7 @@ public class Spacedefender extends ApplicationAdapter {
         for (int i = 0; i < numAsteroids; i++) {
             float randomX = MathUtils.random(0, Gdx.graphics.getWidth() - asteroidTexture.getWidth() * asteroidScale);
             float randomY = MathUtils.random(Gdx.graphics.getHeight(), Gdx.graphics.getHeight() * 2); // Spawn off-screen
-            Asteroid asteroid = new Asteroid(randomX, randomY, randomY, randomY, asteroidTexture);
+            Asteroid asteroid = new Asteroid(randomX, randomY, 50, 50, asteroidTexture);
             entityManagement.addAsteroid(asteroid);
         }
     }
